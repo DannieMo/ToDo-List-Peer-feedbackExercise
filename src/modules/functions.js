@@ -37,9 +37,7 @@ const editItem = (e, list, id, status) => {
   const text = e.target.innerText;
   e.target.innerHTML = `<input type="text" class="edited-text" value=${text} />`;
   const editBoxes = document.querySelectorAll('.edited-text');
-  editBoxes.forEach((box) =>
-    box.addEventListener('keypress', (f) => editMyBox(f, list, id, status))
-  );
+  editBoxes.forEach((box) => box.addEventListener('keypress', (f) => editMyBox(f, list, id, status)));
 };
 
 /* ======== Removes an item from the DOM ============= */
@@ -79,9 +77,7 @@ const displayTasks = (task, container) => {
       const { description } = el;
       descBox.setAttribute('class', 'list-input');
       descBox.innerText = description;
-      descBox.addEventListener('click', (e) =>
-        editItem(e, listArray, el.index, el.completed)
-      );
+      descBox.addEventListener('click', (e) => editItem(e, listArray, el.index, el.completed));
       li.append(checkbox, descBox, trash);
       visual(li, el.completed);
       ul.appendChild(li);
@@ -91,4 +87,6 @@ const displayTasks = (task, container) => {
 };
 
 export default listArray;
-export { addItem, removeItem, editItem, displayTasks };
+export {
+  addItem, removeItem, editItem, displayTasks,
+};
